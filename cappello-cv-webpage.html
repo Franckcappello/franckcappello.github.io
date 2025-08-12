@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Franck Cappello - Professional CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3730a3;
+            --accent: #06b6d4;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border: #e5e7eb;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-info h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-info .title {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item strong {
+            font-size: 1.2em;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            overflow-x: auto;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            white-space: nowrap;
+            color: var(--text-light);
+        }
+
+        .nav-item:hover {
+            color: var(--primary);
+            background: var(--bg-secondary);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: 1.2em;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-subtitle {
+            color: var(--text-light);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .card-content {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg);
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin: 2px;
+        }
+
+        .badge-primary {
+            background: rgba(30, 58, 138, 0.1);
+            color: var(--primary);
+        }
+
+        .badge-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        /* Publications Grid */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .pub-card {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s;
+        }
+
+        .pub-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Collapsible */
+        .collapsible {
+            margin-bottom: 10px;
+        }
+
+        .collapsible-header {
+            background: var(--bg-secondary);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: var(--border);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 15px;
+        }
+
+        .collapsible.active .collapsible-content {
+            max-height: 5000px;
+            padding: 15px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .collapsible-arrow {
+            transition: transform 0.3s;
+        }
+
+        .collapsible.active .collapsible-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Contact Info */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin: 0 auto;
+            }
+
+            .header-stats {
+                justify-content: center;
+            }
+
+            .nav-content {
+                overflow-x: auto;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="profile-image">
+                    <img src="./Franck-Cappello.jpg" alt="FC" style="width:230px;height:230px;">
+                </div>
+                <div class="header-info">
+                    <h1>Franck Cappello</h1>
+                    <div class="title">
+                        R&D Lead & Senior Computer Scientist<br>
+                        Mathematics and Computer Science Division, Argonne National Laboratory<br>
+                        Executive Director, JLESC Joint-Laboratory on Extreme Scale Computing
+                    </div>
+                    <div class="header-stats">
+                        <div class="stat-item">
+                            <strong>IEEE Fellow</strong>
+                        </div>
+                        <div class="stat-item">
+                            <strong>19,500+</strong> Citations
+                        </div>
+                        <div class="stat-item">
+                            <strong>H-Index: 68</strong>
+                        </div>
+                        <div class="stat-item">
+                            <strong>>300</strong> Peer Reviewed Publications
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-content">
+                <div class="nav-item active" onclick="scrollToSection('overview')">Overview</div>
+                <div class="nav-item" onclick="scrollToSection('education')">Education</div>
+                <div class="nav-item" onclick="scrollToSection('positions')">Positions</div>
+                <div class="nav-item" onclick="scrollToSection('awards')">Awards</div>
+                <div class="nav-item" onclick="scrollToSection('responsibilities')">Responsibilities</div>
+                <div class="nav-item" onclick="scrollToSection('publications')">Publications</div>
+                <div class="nav-item" onclick="scrollToSection('software')">Software</div>
+                <div class="nav-item" onclick="scrollToSection('grants')">Grants</div>
+                <div class="nav-item" onclick="scrollToSection('students')">Students</div>
+                <div class="nav-item" onclick="scrollToSection('contact')">Contact</div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="section">
+                <div class="section-header">
+                    <div class="section-icon">📊</div>
+                    <h2 class="section-title">Professional Overview</h2>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">Research Leadership Profile</div>
+                    <div class="card-content">
+                        <li>Three decades of leading research and development at CNRS (France), Inria (France), and Argonne National Laboratory (USA).</li>
+                        <li>R&D topics: LLMs as Research Assistants, High-Performance Computing, Fault-Tolerance, and Scientific Data Compression. </li>
+                        <li>Fifteen years of establishing and leading international collaborations through Joint Laboratories.</li>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Key Achievements</div>
+                    <div class="card-content">
+                        <ul style="margin-left: 20px;">
+                            <li>IEEE Fellow</li>
+                            <li>IEEE Charles Babbage Award</li>
+                            <li>5 Achievement/Service/Honor Awards</li>
+                            <li>2 R&D 100 Awards for innovative software</li>
+                            <li>12 Best papers Finalists/Awards</li>
+                            <li>300+ publications with 19,500+ citations</li>
+                            <li>113 invited talks including dozens of keynotes</li>
+                            <li>22 Ph.D. students advised</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Current Focus Areas</div>
+                    <div class="card-content">
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                            <span class="badge badge-primary">LLMs Evaluation / LLMs for Science </span>
+                            <span class="badge badge-primary">Resilient High-Performance Parallel/Distributed Computing</span>
+                            <span class="badge badge-primary">Compression of Scientific Data</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="section">
+                <div class="section-header">
+                    <div class="section-icon">🎓</div>
+                    <h2 class="section-title">Education</h2>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="card">
+                            <div class="card-title">Ph.D. + 7 years diploma (HDR)</div>
+                            <div class="card-subtitle">University of Paris XI, October 2001</div>
+                            <div class="card-content">
+                                Jury: Michel Cosnard, Brigitte Plateau, Marc Snir, Ian Foster, Mitsuhisa Sato, Joffroy Beauquier
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="card">
+                            <div class="card-title">Ph.D. in Computer Science</div>
+                            <div class="card-subtitle">University of Paris XI, January 1994</div>
+                            <div class="card-content">
+                                Mention très honorable avec les félicitations du jury<br>
+                                Jury: Michel Cosnard, Brigitte Plateau, William Jalby, Zvonko Vranesic, Daniel Etiemble
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="card">
+                            <div class="card-title">DEA (Pre-doctoral degree)</div>
+                            <div class="card-subtitle">University of Paris XI, July 1989</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="card">
+                            <div class="card-title">Master of Science</div>
+                            <div class="card-subtitle">University of Paris VIII, July 1988</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Positions Section -->
+            <section id="positions" class="section">
+                <div class="section-header">
+                    <div class="section-icon">💼</div>
+                    <h2 class="section-title">Professional Positions</h2>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="card">
+                            <div class="card-title">Project Manager and Senior Computer Scientist</div>
+                            <div class="card-subtitle">Argonne National Laboratory | April 2013 - Present</div>
+                            <div class="card-content">
+                                Leading research on resilience and compression in high-performance computing, directing multiple ECP projects, and developing innovative solutions for extreme-scale computing challenges.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="card">
+                            <div class="card-title">Adjunct Research Professor</div>
+                            <div class="card-subtitle">University of Illinois at Urbana-Champaign | April 2013 - Present</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="card">
+                            <div class="card-title">Visiting Research Professor</div>
+                            <div class="card-subtitle">University of Illinois at Urbana-Champaign | July 2009 - March 2013</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="card">
+                            <div class="card-title">Senior Researcher</div>
+                            <div class="card-subtitle">INRIA | September 2003 - December 2013</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="card">
+                            <div class="card-title">Junior Researcher</div>
+                            <div class="card-subtitle">CNRS | February 1994 - August 2003</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards Section -->
+            <section id="awards" class="section">
+                <div class="section-header">
+                    <div class="section-icon">🏆</div>
+                    <h2 class="section-title">Awards & Honors</h2>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>Scientific & Leadership Recognitions</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card">
+                            <ul style="margin-left: 20px;">
+                                <li><span class="badge badge-success">2024</span> IEEE Charles Babbage Award</li>
+                                <li><span class="badge badge-success">2024</span> Secretary of DOE Honor's Award</li>
+                                <li><span class="badge badge-success">2024</span> Europar Achievement Award</li>
+                                <li><span class="badge badge-success">2022</span> ACM HPDC Achievement Award</li>
+                                <li><span class="badge badge-success">2021</span> IEEE TC Award for Editorial Service and Excellence</li>
+                                <li><span class="badge badge-success">2018</span> IEEE TCPP Outstanding Service and Contribution Award</li>
+                                <li><span class="badge badge-success">2017</span> IEEE Fellow, Class of 2017</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>Technical Software Recognitions</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card">
+                            <ul style="margin-left: 20px;">
+                                <li><span class="badge badge-warning">2021</span> R&D 100 Award - SZ: A Lossy Compression Framework for Scientific Data</li>
+                                <li><span class="badge badge-warning">2019</span> R&D 100 Award - Scalable Checkpoint/Restart (SCR) Framework</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>Best Papers & Special Recognitions</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card">
+                            <div class="card-title">Best Paper Awards by Year</div>
+                            <ul style="margin-left: 20px;">
+                                <li><span class="badge badge-success">2025</span> IEEE IPDPS - "Enabling Efficient Error-controlled Lossy Compression" <strong>Best Paper</strong></li>
+                                <li><span class="badge badge-success">2025</span> ACM HPDC - "IPComp: Interpolation Based Progressive Lossy Compression" <strong>Best Paper Candidate</strong></li>
+                                <li><span class="badge badge-success">2025</span> ACM ICS - "Pushing the Limits of GPU Lossy Compression" <strong>Best Paper Candidate</strong></li>
+                                <li><span class="badge badge-success">2024</span> ACM HPDC - "DataStates-LLM: Lazy Asynchronous Checkpointing for LLMs" <strong>Best Paper</strong></li>
+                                <li><span class="badge badge-success">2024</span> IEEE/ACM SC - "hZCC: Accelerating Collective Communication" <strong>Best Paper Candidate</strong></li>
+                                <li><span class="badge badge-success">2023</span> IEEE Transactions on Big Data - Best Paper (123 published papers in 2023)</li>
+                                <li><span class="badge badge-success">2023</span> ACM ICS - "FZ: A flexible auto-tuned modular framework" <strong>Best Paper Candidate</strong></li>
+                                <li><span class="badge badge-success">2023</span> IEEE Cluster - Best Student Poster Finalist</li>
+                                <li><span class="badge badge-success">2022</span> HiPC - "Towards Efficient Cache Allocation" <strong>Best Paper</strong></li>
+                                <li><span class="badge badge-success">2022</span> DRBSD workshop (IEEE/ACM SC) - "Understanding Effects of Modern Compressors" <strong>Best Paper</strong></li>
+                                <li><span class="badge badge-success">2022</span> IEEE/ACM SC - "Mitigating Silent Data Corruptions" <strong>Best Paper & Best Student Paper Finalist</strong></li>
+                                <li><span class="badge badge-success">2018</span> IEEE Cluster - Overall Best Paper + 3 area Best Papers</li>
+                                <li><span class="badge badge-success">2011</span> IEEE/ACM SC - FTI Paper <strong>Perfect Score Award</strong></li>
+                                <li><span class="badge badge-success">2007</span> Europar - "Characterizing Result Errors" <strong>Best Paper</strong></li>
+                                <li><span class="badge badge-success">2001</span> IEEE CCGRID - "OVM: Out-of-Order Execution" <strong>Best Paper</strong></li>
+                            </ul>
+                            <div style="margin-top: 15px;">
+                                <strong>Student Awards:</strong>
+                                <ul style="margin-left: 20px;">
+                                    <li>2023: Graduate student 1st place ACM SRC award</li>
+                                    <li>2022: Undergraduate 1st place ACM SRC award</li>
+                                    <li>2022: Graduate student 2nd place ACM SRC award</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Current Responsibilities Section -->
+            <section id="responsibilities" class="section">
+                <div class="section-header">
+                    <div class="section-icon">📋</div>
+                    <h2 class="section-title">Current Responsibilities</h2>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">Lead of AuroraGPT Evaluation Group</div>
+                    <div class="card-subtitle">Since January 2024</div>
+                    <div class="card-content">
+                        Responsible for overseeing the design and development of evaluation methods, including benchmarks (MCQs, Open Responses, Chain of thoughts, etc.) and other measurement techniques, to assess the performance of Large Language Models (LLMs) as research assistants.
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">Leader of Resilience and Compression Topics at Argonne/MCS</div>
+                    <div class="card-subtitle">Since April 2013</div>
+                    <div class="card-content">
+                        Developing research strategy for resilience and compression within MCS, coordinating with DOE program managers, submitting research proposals, participating in ECP-related projects, developing new research topics, and disseminating research results and software.
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">Executive Director for ANL of JLESC</div>
+                    <div class="card-subtitle">Initiated in 2014</div>
+                    <div class="card-content">
+                        INRIA-Illinois-ANL-BSC-JSC-Riken-UTK Joint-Laboratory on Extreme Scale Computing. Responsible for development of JLESC activities including workshops and visits, as well as day-to-day management. Initiated this Joint-Lab in 2014 and directed it until 2022.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications" class="section">
+                <div class="section-header">
+                    <div class="section-icon">📚</div>
+                    <h2 class="section-title">Publications</h2>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">Publication Statistics</div>
+                    <div class="card-content">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 20px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 2em; color: var(--primary); font-weight: bold;">6</div>
+                                <div>Books, Proceedings</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2em; color: var(--primary); font-weight: bold;">76</div>
+                                <div>Peer Reviewed Journal Articles</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2em; color: var(--primary); font-weight: bold;">237</div>
+                                <div>Peer reviewed Conference and Workshop Papers</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2em; color: var(--primary); font-weight: bold;">113</div>
+                                <div>Invited Keynotes, Plenaries and Talks</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>Most Influential Publications</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="publications-grid">
+                            <div class="pub-card">
+                                <strong>The International Exascale Software Project Roadmap</strong><br>
+                                <span class="badge badge-success">966 citations</span><br>
+                                <small>IJHPCA, 2011 - J. Dongarra et al.</small>
+                            </div>
+                            
+                            <div class="pub-card">
+                                <strong>Grid'5000: A Large-scale Platform</strong><br>
+                                <span class="badge badge-success">711 citations</span><br>
+                                <small>IEEE/ACM GRID 2005 - R. Bolze, F. Cappello et al.</small>
+                            </div>
+                            
+                            <div class="pub-card">
+                                <strong>XtremWeb: Generic Global Computing System</strong><br>
+                                <span class="badge badge-success">600 citations</span><br>
+                                <small>IEEE/ACM CCGRID 2001 - G. Fedak et al.</small>
+                            </div>
+                            
+                            <div class="pub-card">
+                                <strong>Fast Error-bounded Lossy HPC Data Compression with SZ</strong><br>
+                                <span class="badge badge-success">599 citations</span><br>
+                                <small>IEEE IPDPS 2016 - S. Di, F. Cappello</small>
+                            </div>
+                            
+                            <div class="pub-card">
+                                <strong>Cost-benefit Analysis of Cloud Computing</strong><br>
+                                <span class="badge badge-success">539 citations</span><br>
+                                <small>IEEE IPDPS 2009 - D. Kondo et al.</small>
+                            </div>
+                            
+                            <div class="pub-card">
+                                <strong>Toward Exascale Resilience</strong><br>
+                                <span class="badge badge-success">493 citations</span><br>
+                                <small>IJHPCA, 2009 - F. Cappello et al.</small>
+                            </div>
+
+                            <div class="pub-card">
+                                <strong>MPICH-V: Toward a scalable fault tolerant MPI for volatile nodes</strong><br>
+                                <span class="badge badge-success">483 citations</span><br>
+                                <small>IEEE/ACM SC 2002 - G. Bosilca et al.</small>
+                            </div>
+
+                            <div class="pub-card">
+                                <strong>FTI: High performance fault tolerance interface for hybrid systems</strong><br>
+                                <span class="badge badge-success">453 citations</span><br>
+                                <small>IEEE/ACM SC 2011 - L. Bautista-Gomez et al.</small>
+                            </div>
+
+                            <div class="pub-card">
+                                <strong>MPI versus MPI+ OpenMP on the IBM SP for the NAS Benchmarks</strong><br>
+                                <span class="badge badge-success">390 citations</span><br>
+                                <small>IEEE/ACM SC 2000 - F. Cappello et al.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>All Papers</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card" style="max-height: 600px; overflow-y: auto;">
+                            <ul style="margin-left: 20px; font-size: 0.9em;">                                
+                                <li><a href="https://dblp.org/pid/c/FranckCappello.html">dblp</a></li>
+                                <li><a href="https://scholar.google.com/citations?user=z5u02kIAAAAJ&hl=en&oi=ao">Google Scholar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>All Invited Keynotes/Plenaries and Talks</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card" style="max-height: 600px; overflow-y: auto;">
+                            <ul style="margin-left: 20px; font-size: 0.9em;">                                
+                                <li>[I113] AuroraGPT: Exploring AI Assistants for Science, ORAP Forum, Invited talk, Nov., 2025</li>
+                                <li>[I112] EAIRA: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, Exa-DoST 2025 Annual Meeting, Invited talk, Nov., 2025</li>
+                                <li>[I111] EAIRA: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, Clemson's inaugural HPC Day, Invited Keynote, Sept., 2025</li>
+                                <li>[I110] EAIRA: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, ECMWF’s 50th anniversary celebrations, Invited Keynote, Sept., 2025</li>
+                                <li>[I109] EAIRA: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, Trillion Parameters Consorsium annual meeting (TPC25), Invited plenary, Aug., 2025</li>
+                                <li>[I108] EAIRA: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, AI workshop on spectroscopy, JLAB (Jefferson Lab), Invited talk, June, 2025</li>
+                                <li>[I107] AuroraGPT and the 1000 Scientists AI JAM. Exascale Round Table Committee, Invited talk, May, 2025</li>
+                                <li>[I106] EAIRA: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, HPC&AI Workshop at Stony Brook University, Theoretical Physics Symposium, Invited talk, May, 2025</li>
+                                <li>[I105] EAIRA: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, Theoretical Physics Symposium, Perimeter Institute, Toronto, Keynote, April, 2025</li>
+                                <li>[I104] EAIRA: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, TPC (Trillion Parameters Consortium), Invited talk, virtual, April, 2025</li>
+                                <li>[I103] EAIRA: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, Invited seminar, Virginia University, March 2025</li>
+                                <li>[I102] AuroraGPT/Eval: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, ETP4HPC, Keynote, February 2025</li>
+                                <li>[I101] AuroraGPT/Eval: Establishing a Methodology to Evaluate LLMs/LRMs as Research Assistants, Riken RCCS Symposium, Invited Plenary, Jan 2025</li>
+                                <li>[I100] AuroraGPT/Eval: Establishing a methodology to evaluate LLMs/FMs as Research Assistants, University of Virginia, AI for science workshop, Keynote, October 2024</li>
+                                <li>[I99] How much can we reduce scientific data without losing science, Invited Seminar CS department, Northwestern U., Evanston, Jan 2024</li>
+                                <li>[I98] AuroraGPT: Exploring AI Assistants for Science, Keynote, IPDPS24, San Fransisco, June 2024</li>
+                                <li>[I97] AuroraGPT, Evaluation of AI Assistants for Science: Critical and non-Trivial, Invited Plenary, TPC 2024 Barcelona, August 2024</li>
+                                <li>[I96] AuroraGPT: Rationale, Challenges and Development of an AI Research Assistant, Keynote, Europar24, August 2024</li>
+                                <li>[I95] Establishing a Methodology to Evaluate AI Models as Research Assistants, Invited Plenary, CCDSC 2024 Lyon, September 2024</li>
+                                <li>[I94] Frontier AI for Science Security and Technology: FASST, Invited Plenary, NSF HDR Ecosystem Conference 2024, Champaign, September 2024</li>
+                                <li>[I93] AuroraGPT: Rationale, Data Challenges and Development of an AI Research Assistant, NYSDS 2024, Invited Plenary, New York (remote), September 2024</li>
+                                <li>[I92] Toward AI-augmented SWARM based resilience for Integrate Research Infrastructures, Keynote, SuperCheck workshop at SC23, November 2023</li>
+                                <li>[I91] How much can we really compress scientific data without losing science?, Keynote, LIG (Laboratoire Informatique de Grenoble) Keynote Speeches, 2023</li>
+                                <li>[I90] How much can we really compress scientific data, Invited talk, Workshop on Clusters, Clouds, and Data for Scientific Computing, CCDSC, 2022</li>
+                                <li>[I89] A Reflection on Methodologies, Algorithms, and Software for HPDC, Keynote, ACM HPDC 2022</li>
+                                <li>[I88] Fault-tolerance Resilience at Extreme Scale, Keynote, IEEE DSN, 2022</li>
+                                <li>[I87] Compression techniques in the US Exascale Program (ECP), Invited talk, Workshop on, data compression for weather and climate data, 2022</li>
+                                <li>[I86] High Ratio, Speed and Accuracy Customizable Scientific Data Compression with SZ, Keynote, The Second International Workshop on Big Data Reduction, IEEE International Conference on Big Data, 2021</li>
+                                <li>[I85] Lossy compression for scientific data, APS seminar, Dec. 2021</li>
+                                <li>[I84] Scientific data reduction, from renaissance to modern age (CCDSC), Invited talk, Lyon, Sept. 2021. Canceled because of COVID-19</li>
+                                <li>[I83] Cooking the perfect reduction or how to shrink science data while keeping its substance, Invited seminar, Clemson University, Computer Science, February 2021</li>
+                                <li>[I82] International Forum on Detectors for Photon Science (IFDEPS 2020), Mar. 2020. Canceled because of COVID-19</li>
+                                <li>[I81] Fulfilling the promises of Lossy compression for scientific applications, (CCDSC), Invited talk, Lyon, Sept. 2020. Canceled because of COVID-19</li>
+                                <li>[I80] Compression for scientific data, invited seminar, Inria Grenoble, IMAG building, Feb. 2020</li>
+                                <li>[I79] HPC-BigData Convergence: What to do when scientific data becomes too big?, Keynote, Scheduling workshop, Bordeaux, June 2019</li> 
+                                <li>[I78] Trends in HPC Resilience From Extreme Homogeneity to Extreme Heterogeneity, HPDC PC meeting workshop, Arlington, March. 2019</li>
+                                <li>[I77] The ECP EZ project, ECP Video Interview, Dec. 2018</li>
+                                <li>[I76] Keeping-up with the flood of scientific data, Keynote, HiPEAC CSW, Oct. 2018</li>
+                                <li>[I75] Three frontiers of lossy compression for scientific data, HPC and Data Science for Scientific Discovery, Invited talk, UCLA, Oct. 2018</li>
+                                <li>[I74] Keeping-up with the flood of scientific data, Invited talk, Co-design Workshop, China, Oct. 2018</li>
+                                <li>[I73] Three frontiers of lossy compression for scientific data, Workshop on Clusters, Clouds, and Data for Scientific Computing (CCDSC), Invited talk, Lyon, Sept. 2018</li>
+                                <li>[I72] Keeping-up with the flood of scientific data, Keynote, IEEE ISPDC 2018, Switzerland, June 2018</li>
+                                <li>[I71] Lossy compression of scientific simulation data: from visualization to checkpoint/restart, International workshop on the Convergence of Extreme Scale Computing and Big Data Analysis, collocated with IEEE IPDPS 2018, Invited talk, May 2018</li>
+                                <li>[I70] Keeping-up with the Flood of Data in Extreme Scale Simulations, Colloquium of Center for Computational Sciences, University of Tsukuba, May 2018.</li>
+                                <li>[I69] Progress toward transparent asynchronous multi-level checkpointing with VeloC, SIAM-PP - Resilience mini-symposium, Invited talk, Tokyo, Japan, Mar. 2018, replaced by Bogdan Nicolae</li>
+                                <li>[I68] Addressing Fault Tolerance and Data Compression at Exascale, ECP Podcast, published in Inside HPC, https://insidehpc.com/2018/02/podcast-addressing-fault-tolerance-data-compression-exascale/</li>
+                                <li>[I67] Lossy Compression of Scientific Datasets, Keynote, PPAM 2017 conference, Poland, Sept. 2017</li>
+                                <li>[I66] Reconfigurable Computing for Beyond Moore Computing, Invited Panelist, Smoky Mountain Conference (SMC), Sept. 2017</li>
+                                <li>[I65] Checkpoint/Restart: Why You Should Delegate it to a Specialized Library, Invited talk, SIAM Annual Meeting, Pittsburgh, July 2017</li>
+                                <li>[I64] From General Purpose-Exact computing to Tailored-Lossy computing (scientific computing), Invited talk, Greater Chicago Area System Research Workshop, IIT, Chicago, April 2017</li>
+                                <li>[I63] FPGA for Scientific Computing and Data Analytics, Invited talk, International, workshop on Co-design, Xian, China, Oct. 2016</li>
+                                <li>[I62] The Exascale Computing Project and Argonne software activity, Keynote, CREST workshop, Tokyo, Dec. 2016</li>
+                                <li>[I61] Scientific Computing and Data Analytics: How to Deal with the Flood of Data. Distinguished Lecture, Northeaster University, Boston, Boston, Nov. 2016</li>
+                                <li>[I60] Lossy Compression of sSientific Data: From Stone Age to Renaissance, Workshop on Clusters, Clouds, and Data for Scientific Computing (CCDSC), Invited talk, Lyon, Oct. 2016</li>
+                                <li>[I59] FPGA for Scientific Computing and Data Analytics, Invited talk, International workshop on Co-design, Xian, China, Oct. 2016</li>
+                                <li>[I58] Reconfigurable Computing: An Ingredient of Post-Moore Scientific Computing?, Invited dinner talk, Argonne Training Program on Extreme-Scale Computing (ATPESC), St Charles, Aug. 2016</li>
+                                <li>[I57] On-Demand Data Analytics and Storage for Extreme-Scale Simulations and Experiments, Invited short talk, BDEC meeting, Frankfurt, June 2016</li>
+                                <li>[I56] Trust in Results of Numerical Simulation: the New Challenging Scientific Problem in Reliability, Invited Plenary, Conference on Data Analysis: CODA 2016, Santa Fé, March 2016</li>
+                                <li>[I55] Grid'5000 Origin and Some Suggestions for the Next 10 Years, Invited talk, Grid5000 school, Feb. 2016</li>
+                                <li>[I54] The Joint Laboratory for Extreme Scale Computing: Investigating the challenges of post petascale scientific computing, Invited talk, 6th AICS International Symposium, Feb. 2016</li>
+                                <li>[I53] Taking on Exascale Challenges: Key Lessons and International Collaboration Opportunities Delivered by European Cutting-Edge HPC Initiatives, Invited Panelist, SC15 BOF on European HPC Technology Projects, Nov. 2015</li> 
+                                <li>[I52] Re-form: Approaching Reconfigurable Computing for HPC and Data Analytics, Invited talk, International Workshop on Co-design, Wuxi, China, Nov. 2015</li>
+                                <li>[I51] Let's Forget about "Fault Tolerance" and "Resilience" for HPC ; Trust is the New Challenging Scientific Problem in Reliability, Keynote, FTS workshop as part of IEEE Cluster 2015, Chicago, Sept. 2015</li>
+                                <li>[I50] Toward Exascale Resilience, Keynote, HiPEAC, thematic session on “reliability for exascale platforms and its impact on performance, from the point of view of programming models,” Oslo, May 5-7, 2015 (cancelled)</li>
+                                <li>[I49] Advances in Climate Simulations at Extreme Scale, Invited Plenary, International workshop on Co-design, Guanzhou, China, 2014 (cancelled)</li>
+                                <li>[I48] Toward Approximate Detection of Silent Data Corruptions, CCDSC, Invited Plenary, France, 2014</li>
+                                <li>[I47] Resilient Algorithms and Computing Models, SIAM Annual Meeting, Invited talk, USA, 2014</li>
+                                <li>[I46] Climate Modeling at Extreme Scale, Invited plenary, International workshop on Co-design, Guilin, China, 2013</li>
+                                <li>[I45] High Performance Fault Tolerance / Resilience at Extreme Scale, Keynote, HPCS 2013, Helsinki July, 2013</li>
+                                <li>[I44] Advanced Fault Tolerance Techniques for Postpetascale Systems, Invited plenary, AICS Symposium, Kobe, 2013</li>
+                                <li>[I43] Fault Tolerance at Exascale: Recent Progresses and Open Questions, Keynote, IEEE Cluster, Beijing, 2012</li>
+                                <li>[I42] Fault Tolerance for HPC at Extreme Scale: The Disruptive Way, Keynote, SPAC-PAD, New York, 2012</li>
+                                <li>[I41] Toward Exascale Climate Simulation: Exploring Limits of Current Codes, Invited talk at “Weather and Climate Prediction on Next Generation Supercomputers: Numerical and Computational Aspects, Met office, Exeter, UK, 2012</li>
+                                <li>[I40] Failure Prediction: Current Situation and Open Questions, CCDSC, Invited plenary, France, 2012</li>
+                                <li>[I39] Redesiging Fault Tolerance for High Performance Computing, Distinguished Speaker seminar, I2PC, UIUC, 2012</li>
+                                <li>[I38] A Holistic Approach for Exascale (Scalable) Resilience, Keynote talk, IEEE/ACM SC11/ScalA workshop, 2011</li>
+                                <li>[I37] Fault Tolerance for High Performance Computing Applications in Hostile Environments: Exascale and Cloud, KEYNOTE talk, IEEE IPDPS/DPDNS11, Anchorage, 2011</li>
+                                <li>[I36] Exascale: The Great Disruption, Keynote talk, PDP 2011, Cyprus, 2011</li>
+                                <li>[I35] EESI: the European Exascale Software Initiative, KEYNOTE talk, Intel Exascale Leadership Conference, 2011</li>
+                                <li>[I34] Toward Exascale Resilience, Invited talk HiPC workshop “Reaching Exascale in This Decade,” 2010</li>
+                                <li>[I33] From Grid to Cloud: A View from the Experimental Platform Side, Invited Plenary talk, IEEE Grid 2008</li>
+                                <li>[I32] Fault Tolerance & PetaScale Systems: Current Knowledge, Challenges and Opportunities, Keynote talk, Europar, Spain, 2008</li>
+                                <li>[I31] Fault Tolerance & PetaScale Systems: Current Knowledge, Challenges and Opportunities», Keynote talk, EuroPVM/MPI, Dublin, 2008</li>
+                                <li>[I30] French National Grid Testbed: Grid 5000, Keynote talk, DCABES 2008, Dalian, China</li>
+                                <li>[I29] Towards an International Computer Science Grid, Keynote talk, IEEE/ACM CCGRID'2007, Rio, Brazil, 2007</li>
+                                <li>[I28] Towards an International Computer Science Grid, Keynote talk, GCP'2007, Paris, 2007</li>
+                                <li>[I27] Towards an International Computer Science Grid, Keynote talk, Symposium on Grid, Delft, 2007</li>
+                                <li>[I26] Towards an International Computer Science Grid, Keynote talk, IEEE WETICE, Paris, 2007 </li>
+                                <li>[I25] Fault Tolerance & PetaScale Systems: Current Knowledge, Challenges and Opportunities, Clusters and Computational Grids for Scientific Computing 2008, Highland Lake Inn, Asheville, September 10–13, 2008</li>
+                                <li>[I24] Fault Tolerance & PetaScale Systems: Current Knowledge, Challenges and Opportunities, HPC Conference, Cetraro, July 2008</li>
+                                <li>[I23] Grid'5000, Motivations, Status and Early Results, Grid@Asia workshop, Seoul, Corea, December 13, 2006</li>
+                                <li>[I22] When Scale Reactivates Research in Distributed Computing: Grid'5000, Instant Grid and MPI-V, STIC-Amsud meeting, Santiago, Chile, October 18-20, 2006</li>
+                                <li>[I21] Grid'5000, Motivations, Status and Early Results, Workshop of the Grille Academic Tunisienne pour la Recherche Scientifique, Tunis, Tunisia, Oct. 2006</li>
+                                <li>[I20] An Update of Grid'5000 and a Focus on a Fault Tolerant MPI Experiment, Clusters and Computational Grids for Scientific Computing 2006, Highland Lake Inn, Asheville, USA, September 10-13, 2006</li>
+                                <li>[I19] Grid'5000, Motivations, Status and Early Results, HPC Conference, Cetraro, July 2006</li>
+                                <li>[I18] Grid and Utility Computing: Do they really mean Pervasive Services?, ICPS 2006 panel session, June 2006</li>
+                                <li>[I17] Grid 5000: The Need for Experimental Platform for Grid Research, ExpGrid Workshop Panel, Paris, June 2006</li>
+                                <li>[I16] Grid'5000, Motivations, Status and Early Results, Workshop new trends in HPDC, Amsterdam, March, 2006</li>
+                                <li>[I15] Grid Projects in France and Europe, Colloquium on "25 years of collaboration between Instituto de Informatica de l'UFRGS and France,” Porto Alegre, November 2005</li>
+                                <li>[I14] Grid'5000, Workshop Grid@large, in conjunction with Europar 2005, Lisboa, August 2005</li>
+                                <li>[I13] Dependability in Grids, Workshop of the IFIP WG10.4 ON DEPENDABLE COMPUTING AND FAULT TOLERANCE, Yokoama, July, 2005</li>
+                                <li>[I12] Grid Research Tools and Grid'5000, workshop on P2P: concept, outils et applications ; Geneve, May 2005</li>
+                                <li>[I11] Dependability in Grids, panel "Dependability Challenges and Education Perspectives", Fifth European Dependable Computing Conference, Budapest, April 2005</li>
+                                <li>[I10] Desktop Grid, Global Computing and P2P Distributed Systems, workshop on Advanced Grid Technologies, Systems & Services, Session: Grid Foundations for Business & Industry, IST Call 5, Brussels, February 2005</li>
+                                <li>[I9] The MPICH-V Project, ENS/NSF Workshop, Lyon, September 2004</li>
+                                <li>[I8] Hybrid Preemptive Scheduling of MPI Applications on the Grids, Scheduling Workshop, Modane, August 2004</li>
+                                <li>[I7] P2P Computing: From Expectations to Feedback, Trans-European-Research and Education Networking Association, Zagreb, Croatia, May 2003</li>
+                                <li>[I6] Desktop Grids with XtremWeb: Experiences and Feedback, panel “Desktop Grids: 10,000 fold parallelism for the masses” SuperComputing 2002 (SC2002), November 2002, Baltimore</li>
+                                <li>[I5] XtremWeb: Toward High Performance Computing on P2P systems, Advanced Research Workshop on High Performance Computing, Cetraro, June 2002</li>
+                                <li>[I4] Système de Calcul Global Pair à Pair, Journée de l'ORAP, Saclay, March 2002</li>
+                                <li>[I3] OVM: High Performance Computing with RPC Programming Style, Score Users Group Meeting, Oxford, UK September 2000 </li>
+                                <li>[I2] Understanding Performance of SMP Clusters for the NAS Benchmark, Workshop on Grid and Cluster Computing, Tsukuba, Japan, March 2000</li>
+                                <li>[I1] Comparing Performance of MPI and MPI+OpenMP for NAS Benchmark on IBM SP3, IBM Watson ACTC European Workshop, Paris, France, May 2000 </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+      
+
+            </section>
+
+            <!-- Software Section -->
+            <section id="software" class="section">
+                <div class="section-header">
+                    <div class="section-icon">💻</div>
+                    <h2 class="section-title">Software & Methods</h2>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">SZ Lossy Compressor</div>
+                    <div class="card-subtitle">Started in 2015 | R&D100 Award 2021 | Part of the E4S software stack deployed on Exascale Systems</div>
+                    <div class="card-content">
+                        Lossy compressor strictly respecting user-set error bounds. Integrated into HDF5, ADIOS, and NetCDF I/O libraries as part of the ECP project. Helps several Exascale Computing Project applications reduce dataset sizes significantly.
+                        <br><br>
+                        <a href="https://github.com/szcompressor/SZ" style="color: var(--accent);">GitHub Repository →</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">VeloC Checkpoint-Restart Framework</div>
+                    <div class="card-subtitle">Started in 2016 | R&D100 Award 2019 (as part of SCR2) | Part of the E4S software stack deployed on Exascale Systems</div>
+                    <div class="card-content">
+                        Multilevel checkpoint-restart framework helping Exascale Computing Project applications reduce checkpoint/restart overhead with minimum code modification.
+                        <br><br>
+                        <a href="https://github.com/ECP-VeloC/VELOC" style="color: var(--accent);">GitHub Repository →</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">Grid'5000</div>
+                    <div class="card-subtitle">Started in 2003 | 6000+ users | 2500+ publications, 300+ Ph. d Thesis used Grid5000 for their experiments</div>
+                    <div class="card-content">
+                        Initiated and directed this experimental platform for parallel and distributed computing from 2003-2008. Transformed clusters distributed across France into a fully reconfigurable experimental platform. Inspired NSF Future Grid and Chameleon projects.
+                        <br><br>
+                        <a href="https://www.grid5000.fr" style="color: var(--accent);">Grid'5000 Official Website →</a>
+                        <br>
+                        <a href="https://www.grid5000.fr/w/History" style="color: var(--accent);">Grid'5000 Official History →</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">MPICH-V</div>
+                    <div class="card-subtitle">Started in 2002 | served/inspired 10s of papers (see list) totaling >7000+ citations</div>
+                    <div class="card-content">
+                        Experimental platform for fault tolerant protocols. Origin of a decade of research producing tens of publications in fault tolerance.
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">XtremWeb</div>
+                    <div class="card-subtitle">Started in 1999</div>
+                    <div class="card-content">
+                        Experimental platform for Desktop Grid. Adopted as the foundation of the iExec platform.
+                        <br><br>
+                        <a href="https://iex.ec" style="color: var(--accent);">iExec Platform →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grants Section -->
+            <section id="grants" class="section">
+                <div class="section-header">
+                    <div class="section-icon">💰</div>
+                    <h2 class="section-title">Research Grants</h2>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">Grant Portfolio Summary</div>
+                    <div class="card-content">
+                        <strong>60+ Grants</strong> as Main PI or Co-PI:
+                        <ul style="margin-left: 20px;">
+                            <li><strong>20+</strong> French research projects</li>
+                            <li><strong>6</strong> European projects (2 STREPS, 1 NoE, 1 Infrastructure, 2 support actions)</li>
+                            <li><strong>20+</strong> USA grants (DOE ECP, DOE ASCR, NSF, Sandia, ANL LDRD)</li>
+                            <li><strong>1</strong> International project (G8)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>Recent Grants (2020-2024)</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card">
+                            <ul style="margin-left: 20px; font-size: 0.9em;">
+                                <li><strong>[60] 2024</strong> DOE ASCR AI for Science - co-PI</li>
+                                <li><strong>[59] 2024</strong> DOE ASCR ZF Reduction project - lead PI</li>
+                                <li><strong>[58] 2024</strong> Argonne LDRD, AuroraGPT - group lead</li>
+                                <li><strong>[57] 2024</strong> NSF CSSI FZ project supplemental funding - Lead PI</li>
+                                <li><strong>[56] 2023-2028</strong> DOE ASCR Xscope - X-ray & Neutron Scientific Center</li>
+                                <li><strong>[55] 2023-2028</strong> DOE ASCR Illumine - Intelligent Learning for Light Source</li>
+                                <li><strong>[54] 2023-2027</strong> NSF CSSI FZ: Cyberinfrastructure for lossy compression - Lead PI</li>
+                                <li><strong>[53] 2023-2028</strong> DOE ASCR Distributed Intelligence for Resilient Workflows - Lead Resilience</li>
+                                <li><strong>[52] 2023-2026</strong> DOE FAIR DTIO: Computational Storage - co-PI</li>
+                                <li><strong>[51] 2022-2025</strong> DOE ASCR Actionable Intelligent Visual Analytics - co-PI</li>
+                                <li><strong>[50] 2022-2025</strong> DOE ASCR support for JLESC - PI</li>
+                                <li><strong>[49] 2021-2023</strong> NSF CSSI ROCCI: In Situ Lossy Compression - Co-PI</li>
+                                <li><strong>[48] 2020-2022</strong> SPP with oil company - lead PI</li>
+                                <li><strong>[46] 2020-2023</strong> DOE ECP VeloC-SZ - lead PI</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>DOE ECP and Major US Grants (2014-2020)</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card">
+                            <ul style="margin-left: 20px; font-size: 0.9em;">
+                                <li><strong>[47] 2018-2019</strong> DOE support for JLESC - lead PI</li>
+                                <li><strong>[45] 2018-2020</strong> NSF Ephemeral Coherence Cohort - co-PI (Marc Snir, PI)</li>
+                                <li><strong>[44] 2017-2018</strong> DOE support for JLESC - lead PI</li>
+                                <li><strong>[43] 2017-2020</strong> DOE ECP VeloC - lead PI</li>
+                                <li><strong>[42] 2017-2020</strong> DOE ECP EZ - lead PI</li>
+                                <li><strong>[41] 2017-2023</strong> DOE ECP CODAR - Lead for data reduction (Ian Foster, PI)</li>
+                                <li><strong>[40] 2017-2023</strong> DOE ECP Computing the Sky - co-lead Data Analysis (Salman Habib, PI)</li>
+                                <li><strong>[39] 2016-2019</strong> NSF ALETHEIA: Automatic detection framework - co-PI</li>
+                                <li><strong>[38] 2016-2019</strong> DOE ASCR Catalog - co-PI</li>
+                                <li><strong>[37] 2015-2018</strong> EDF Grant to support JLESC - PI</li>
+                                <li><strong>[36] 2015-2018</strong> DARPA BRASS - senior personnel</li>
+                                <li><strong>[35] 2015-2017</strong> ANL LDRD Re-form: FPGA reconfigurability - co-PI</li>
+                                <li><strong>[34] 2014-2017</strong> DOE ASC DECAF: High-Performance Decoupling - co-PI</li>
+                                <li><strong>[33] 2014-2017</strong> PUF NextGN: Next Generation Simulation Platforms - PI</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>European and International Projects (2006-2016)</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card">
+                            <ul style="margin-left: 20px; font-size: 0.9em;">
+                                <li><strong>[32] 2013-2015</strong> Anomaly@Exascale: INRIA International Associate Team - co-PI</li>
+                                <li><strong>[31] 2013-2016</strong> ANL LDRD Paris: Data Knowledge-Based Resilience - PI</li>
+                                <li><strong>[30] 2013-2016</strong> MontBlanc 2: European FP7 IP - Co-PI (as Inria)</li>
+                                <li><strong>[29] 2013-2016</strong> Scorpio: Significance-Based Computing - European FP7 FET</li>
+                                <li><strong>[28] 2012</strong> EESI2: European Exascale Software Initiative 2 - Leader Resilience</li>
+                                <li><strong>[27] 2012</strong> DOE Fault Tolerance Framework for Cray XE6 - PI</li>
+                                <li><strong>[26] 2012</strong> AMFT: Advanced Multilevel Fault Tolerance - STRATOS prototype</li>
+                                <li><strong>[25] 2011</strong> G8 ECS: Towards Exascale Climate Simulation - initiator & director</li>
+                                <li><strong>[24] 2011</strong> DOE XStack: Event Log Analysis - main PI</li>
+                                <li><strong>[23] 2010</strong> ANR-JST FP3C: Framework for Post Petascale - co-PI</li>
+                                <li><strong>[22] 2010</strong> EESI: European Exascale Software Initiative - co-initiator</li>
+                                <li><strong>[18] 2007</strong> EDGeS: Infrastructure European Project FP7 - co-PI</li>
+                                <li><strong>[17] 2006</strong> Grid4All: European Project STREP FP6 - co-PI</li>
+                                <li><strong>[16] 2006</strong> QosCos Grid: European Project STREP FP6 - PI for INRIA</li>
+                                <li><strong>[11] 2004</strong> CoreGRID: European Network of Excellence - senior personnel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>French National Projects and Early Grants (1999-2010)</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card">
+                            <ul style="margin-left: 20px; font-size: 0.9em;">
+                                <li><strong>[21] 2010</strong> RESCUE, ANR White - co-PI</li>
+                                <li><strong>[20]</strong> MAP-REDUCE, ANR ARPEGE - co-PI</li>
+                                <li><strong>[19] 2008</strong> Aladdin: Project after Grid'5000 - Scientific Director</li>
+                                <li><strong>[15] 2006</strong> HIPcal: ANR Calcul Intensif et Simulation - co-PI</li>
+                                <li><strong>[14] 2005</strong> CARRIOCAS: Competitivity pole System@tic - PI INRIA</li>
+                                <li><strong>[13] 2005</strong> Grid eXplorer: Large-Scale Emulation Platform - PI</li>
+                                <li><strong>[12] 2004</strong> Large-Scale Evaluation of HP Networks, ACI Grid'5000 - PI</li>
+                                <li><strong>[10] 2003</strong> CNRS action: National experimental platform - PI</li>
+                                <li><strong>[9] 2003</strong> Data GRID Explorer, Data Mass ACI - PI</li>
+                                <li><strong>[8] 2003</strong> CNRS-Urbana collaboration - co-PI with Marc Snir</li>
+                                <li><strong>[7] 2002</strong> DataGraal, ACI GRID - co-PI</li>
+                                <li><strong>[6] 2002</strong> cASPer: Community based Application Service Provider - co-PI</li>
+                                <li><strong>[5] 2002</strong> Augernome XtremWeb, PPF Paris XI University - co-PI</li>
+                                <li><strong>[4] 2001</strong> CGP2P: P2P Global Computing, ACI GRID - PI</li>
+                                <li><strong>[3] 2001</strong> GRID2, ACI GRID coordination action - senior personnel</li>
+                                <li><strong>[2] 2000</strong> XtremWeb Desktop Grid, Ministry of research - co-PI</li>
+                                <li><strong>[1] 1999</strong> RNRT ROM Project: Multi-service Optical network - senior personnel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Students Section -->
+            <section id="students" class="section">
+                <div class="section-header">
+                    <div class="section-icon">👥</div>
+                    <h2 class="section-title">Student Advising</h2>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">Advising Statistics</div>
+                    <div class="card-content">
+                        <ul style="margin-left: 20px;">
+                            <li><strong>22</strong> Ph.D. students advised (most now in research or professor positions)</li>
+                            <li><strong>58</strong> Ph.D. defense juries</li>
+                            <li><strong>8</strong> tenure track examinations (French Habilitation)</li>
+                            <li><strong>Multiple</strong> postdoctoral researchers supervised</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>Alumni Success Stories</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="publications-grid">
+                            <div class="pub-card">
+                                <strong>Olivier Richard</strong>
+                                <small>Ph.D. 1999 - Hybrid Parallel Programming, Cluster scheduler</small><br>
+                                Current: Assistant Professor IMAG
+                            </div>
+
+                            <div class="pub-card">
+                                <strong>George Bosilca</strong><br>
+                                <small>Ph.D. 2003 - OVM Project</small><br>
+                                Current: Software Architect, NVIDIA
+                            </div>
+                            
+                            <div class="pub-card">
+                                <strong>Gilles Fedak</strong><br>
+                                <small>Ph.D. 2004 - XtremWeb</small><br>
+                                Current: INRIA Researcher & Founder and CEO of iExec
+                            </div>
+                            
+                            <div class="pub-card">
+                                <strong>Leonardo Bautista Gomez</strong><br>
+                                <small>Ph.D. Co-advisor 2012 - FTI Software</small><br>
+                                Current: Founder and team leader of MigaLabs
+                            </div>
+                            
+                            <div class="pub-card">
+                                <strong>Ana Gainaru</strong><br>
+                                <small>Ph.D. Co-advisor 2015 - Failure Prediction</small><br>
+                                Current: Computer Scientist at ORNL
+                            </div>
+                            
+                            <div class="pub-card">
+                                <strong>Dingwen Tao</strong><br>
+                                <small>Ph.D. Co-advisor - Lossy Compression</small><br>
+                                Current: Full Professor · Institute of Computing Technology, Chinese Academy of Sciences
+                            </div>
+                    
+                            <div class="pub-card">
+                                <strong>Geraud Krawezik</strong><br>
+                                <small>Ph.D. Advisor 2005 - Advanced programming with OpenMP</small><br>
+                                Current: Software Engineer, Flatiron Institute, Simons Foundation
+                            </div>
+
+                            <div class="pub-card">
+                                <strong>Aurelien Bouteiller</strong><br>
+                                <small>Ph.D. Co-Advisor 2006 - MPICH-V1 environment and protocols</small><br>
+                                Current: Research Assistan Professor, Innovative Computing Laboratory, UTK
+                            </div>
+
+                            <div class="pub-card">
+                                <strong>Oleg Lodigensky</strong><br>
+                                <small>Ph.D. Co-Advisor 2006 - XtremWeb-Auger : HEP desktop Grid</small><br>
+                                Current: Expert, CryptoNext Security
+                            </div>
+
+                            <div class="pub-card">
+                                <strong>Pierre Lemarinier</strong><br>
+                                <small>Ph.D. Co-Advisor 2006 - MPICH-V2 environment and protocol</small><br>
+                                Current: Product Owner at Atos BDS R&D
+                            </div>
+
+                            <div class="pub-card">
+                                <strong>Benjamin Quetier</strong><br>
+                                <small>Ph.D. Co-Advisor 2008 - very large scale distributed system emulator</small><br>
+                                Current: co-founder, CTO Invenis
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service Section -->
+            <section id="students" class="section">
+                <div class="section-header">
+                    <div class="section-icon">👥</div>
+                    <h2 class="section-title">Services</h2>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>Journal editorial boards and conference steering committees</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card">
+                            <ul style="margin-left: 20px; font-size: 0.9em;">
+                                <li><strong>Editorial Board</strong> Elsevier Parallel Computing, 2021</li>
+                                <li><strong>Editorial Board</strong> IEEE Transaction on Computers, since 2019</li>
+                                <li><strong>Editorial Board</strong> IEEE Transaction on Parallel and Distributed Computing until 2018</li>
+                                <li><strong>Editorial Board</strong> International Journal of Grid Computing, Kluwer Academic Publishers since 2003</li>
+                                <li><strong>Editorial Board</strong> International Journal of Cluster Computing since 2008</li>
+                                <li><strong>Steering Committee</strong> IEEE and ACM HPDC 2014-2020 and previously 2006-2010</li>
+                                <li><strong>Steering Committee</strong> IEEE/ACM CCGRID</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <strong>Conference, workshop, session (co-)organization</strong>
+                        <span class="collapsible-arrow">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="card">
+                            <ul style="margin-left: 20px; font-size: 0.9em;">
+                                <li><strong>Tech paper area co-chair</strong> IEEE IPDPS 2025</li>
+                                <li><strong>Tutorial co-chair</strong> IEEE/ACM SC 2023</li>
+                                <li><strong>Award chair</strong> IEEE/ACM SC 2022</li>
+                                <li><strong>Award deputy chair</strong> IEEE/ACM SC 2021</li>
+                                <li><strong>Virtual Logistics Liaison - Tech papers</strong> IEEE/ACM SC 2021</li>
+                                <li><strong>Tech Paper Chair</strong> IEEE/ACM SC 2020</li>
+                                <li><strong>Program Chair</strong> IEEE Cluster 2020</li>
+                                <li><strong>Deputy Tech Paper Chair</strong> IEEE/ACM SC 2019</li>
+                                <li><strong>System software track chair</strong> IEEE IPDPS 2018</li>
+                                <li><strong>Poster Chair</strong> IEEE/ACM SC 2018</li>
+                                <li><strong>Program co-chair</strong> IEEE CCGrid 2017 </li>
+                                <li><strong>Emerging Technology chair</strong> ACM/IEEE SC 2017 </li>
+                                <li><strong>Program vice-chair: Security, Privacy, and Reliability track</strong> IEEE CCGrid 2016</li>
+                                <li><strong>Award chair</strong> ACM/IEEE SC 2015</li>
+                                <li><strong>Scientific visualization showcase chair</strong> IEEE/ACM SC 2014</li>
+                                <li><strong>Program co-chair</strong> ACM CAC 2014</li>
+                                <li><strong>Program co-chair</strong> ACM HPDC 2014 </li>
+                                <li><strong>Test of Time Award chair</strong> ACM IEEE SC 2013</li>
+                                <li><strong>Birds of a feather:</strong> G8 Exascale projects, ACM/IEEM SC13</li>
+                                <li><strong>Panel:</strong> "Fault Tolerance/resilience at Petascale/Exascale: Is it really critical? Are solutions necessarily disruptive?" IEEE/ACM SC13</li>
+                                <li><strong>Session:</strong> "system software challenges" as ISC2013</li>
+                                <li><strong>Tutorial co-chair</strong> ACM IEEE SC 2012</li>
+                                <li><strong>Technical Paper co-chair</strong> ACM IEEE SC 2011</li>
+                                <li><strong>Program chair</strong> HIPC 2010</li> 
+                                <li><strong>Program chair</strong> IEEE NCA 2010</li>
+                                <li><strong>Technical Paper Area co-chair</strong> IEEE/ACM SC 2009</li>
+                                <li><strong>Program co-chair</strong> IEEE/ACM CCGrid 2009</li>
+                                <li><strong>Dagstuhl Seminar</strong> on Fault tolerance for HPC, 2009</li>
+                                <li><strong>General co-chair</strong> Grid and Pervasive Computing</li>
+                                <li><strong>General co-chair</strong> PCCGrid'2007, First Workshop on Large-Scale and Volatile Desktop Grids (PCCGrid) in conjunction with the IEEE International Parallel & Distributed Processing Symposium, 2007</li> 
+                                <li><strong>Program co-chair</strong> EuroPVM/MPI, Paris, Sept, 2007, http://www.pvmmpi07.org/, 2007</li>
+                                <li><strong>Program co-chair</strong> HotP2P'2007, Fourth International Workshop on Hot Topics in Peer-to-Peer Systems (Hot-P2P) in conjunction with the IEEE International Parallel & Distributed Processing Symposium, 2007</li>
+                                <li><strong>Workshop</strong> PC-Grid at IEEE IPDPS 2006</li>
+                                <li><strong>General Chair</strong> IEEE HPDC 2006</li> 
+                                <li><strong>Workshop</strong> GP2PC'2005, "Global and Peer to Peer Computing", CCGRID'2005, Cardiff, 9 May 2005</li>
+                                <li><strong>Workshop</strong> GP2PC'2004, "Global and Peer to Peer Computing", CCGRID'2004, Chicago, 19 April 2004</li>
+                                <li><strong>Workshop</strong> "Global and Peer-to-Peer Computing" (GP2PC) Workshop co-located with IEEE/ACM CCGrid’2003, Tokyo, Japan, 2003</li>
+                                <li><strong>Winter school</strong> GRID 2002, Aussois, Dec. 2002</li>
+                                <li><strong>GRID summer school</strong>  co-located with RenPar 2002, Hammamet, May 2002</li>
+                                <li><strong>Workshop</strong>  « Global and Peer-to-Peer Computing » (GP2PC) co-located with IEEE/ACM CCGrid’2002, Berlin, Germany, 2002 (www.lri.fr/~fci/GP2PC.htm)</li>
+                                <li><strong>Workshop</strong> « Global Computing on Personal Devices » (GP2PC) workshop co-located with international conference IEEE/ACM CCGrid’2001, Brisbane, Australia, 2001</li>
+                                <li><strong>IEEE HPCA6</strong> , Toulouse, France, 2000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <div class="section-header">
+                    <div class="section-icon">📧</div>
+                    <h2 class="section-title">Contact Information</h2>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            <a href="mailto:cappello@anl.gov" style="color: var(--accent);">cappello@anl.gov</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            +1 217 417 8557
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <strong>Website:</strong><br>
+                            <a href="https://www.anl.gov/profile/franck-cappello" style="color: var(--accent);">ANL Profile</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🔬</div>
+                        <div>
+                            <strong>Google Scholar:</strong><br>
+                            <a href="http://scholar.google.com/citations?user=z5u02kIAAAAJ&hl=en&oi=ao" style="color: var(--accent);">View Publications</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🏢</div>
+                        <div>
+                            <strong>JLESC Website:</strong><br>
+                            <a href="http://jointlab.ncsa.illinois.edu" style="color: var(--accent);">Joint Laboratory</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" style="margin-top: 30px; background: var(--bg-secondary);">
+                    <div class="card-content" style="text-align: center;">
+                        <strong>Mathematics and Computer Science Division</strong><br>
+                        Argonne National Laboratory<br>
+                        9700 S. Cass Avenue<br>
+                        Lemont, IL 60439, USA
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const navHeight = document.querySelector('.nav').offsetHeight;
+            const sectionTop = section.offsetTop - navHeight - 20;
+            
+            window.scrollTo({
+                top: sectionTop,
+                behavior: 'smooth'
+            });
+            
+            // Update active nav item
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const collapsible = this.parentElement;
+                collapsible.classList.toggle('active');
+            });
+        });
+        
+        // Update active nav item on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-item');
+            const navHeight = document.querySelector('.nav').offsetHeight;
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navHeight - 100;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.textContent.toLowerCase() === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Add animation to sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.1s';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.animationPlayState = 'paused';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
